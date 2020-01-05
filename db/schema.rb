@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_034221) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "description"
+    t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
