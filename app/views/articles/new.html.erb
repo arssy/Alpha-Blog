@@ -1,7 +1,13 @@
-<div>
-  <h1>New Article</h1>
-
-  <%= render 'form' %>
-
-  <%= link_to 'Artitcle list', articles_path %>
+<div class="container">
+  <div class="row new-article">
+    <div class="col-md-12">
+      <h1>New Article</h1>
+  
+      <%= render 'form' %>
+  
+      <div class="row">
+        <%= link_to 'Artitcle list', articles_path, class: 'btn btn-xm btn-secondary' %>
+      </div>
+    </div>
+  </div>
 </div>
