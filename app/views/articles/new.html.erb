@@ -1,13 +1,24 @@
 <div class="container">
   <div class="row new-article">
     <div class="col-md-12">
-      <h1>New Article</h1>
-  
-      <%= render 'form' %>
+      <div class="row">
+        <div class="col-md-12">
+          <br> <h1 class="center-text">New Article</h1> <br>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'form' %>
+        </div>
+      </div>
   
       <div class="row">
-        <%= link_to 'Artitcle list', articles_path, class: 'btn btn-xm btn-secondary' %>
+        <div class="col-md-12">
+          <small>[<%= link_to 'Back to artitcle list', articles_path, class: '' %>]</small>
+        </div>
       </div>
+      <br>
     </div>
   </div>
 </div>

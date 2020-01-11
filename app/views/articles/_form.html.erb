@@ -1,16 +1,9 @@
-<% if @article.errors.any? %>
-  <h2>This following error prevented the article from being updated</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/error_message', obj: @article %>
 
 <%= form_for @article do |f| %>
   <div class="form-group row">
     <div class="col-md-2">
-      <%= f.label :title, 'Title', class: 'col-md-2' %>
+      <%= f.label :title, 'Title' %>
     </div>
     <div class="col-md-10">
       <%= f.text_field :title, class: 'form-control' %>
@@ -18,13 +11,15 @@
   </div>
   <div class="form-group row">
     <div class="col-md-2">
-      <%= f.label :description, 'Description', class: 'col-md-2' %>
+      <%= f.label :description, 'Description' %>
     </div>
     <div class="col-md-10">
-      <%= f.text_area :description, class: 'form-control' %>
+      <%= f.text_area :description, rows: 10, class: 'form-control' %>
     </div>
   </div>
   <div class="form-group row">
-    <%= f.submit class: 'btn btn-primary' %>
+    <div class="col-md-12">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

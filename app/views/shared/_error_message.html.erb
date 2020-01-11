@@ -1,0 +1,11 @@
+<% if obj.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h6 class="alert-heading error-messages"><%= obj.errors.count %> errors prohibited this data from being saved</h6>
+    <hr class="my-2">
+    <ul class="my-0 error-messages">
+      <% obj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,30 +1,41 @@
-<div>
-  <h2>Article Index Page</h2>
-  <%= link_to 'Create new article', new_article_path %>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @articles.each do |article| %>
-        <tr>
-          <td><%= article.id %></td>
-          <td><%= article.title %></td>
-          <td><%= article.description %></td>
-          <td>
-            <span>
-              <%= link_to 'Show', article_path(article) %>
-              <%= link_to 'Edit', edit_article_path(article) %>
-              <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure to delete this data?"} %>
-            </span>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Article Index Page</h2>
+      <%= link_to 'Create new article', new_article_path, class: 'btn btn-primary btn-sm' %>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @articles.each do |article| %>
+            <tr>
+              <td><%= article.id %></td>
+              <td><%= article.title %></td>
+              <td><%= article.description %></td>
+              <td>
+                <span>
+                  <%= link_to 'Show', article_path(article) %>
+                  <%= link_to 'Edit', edit_article_path(article) %>
+                  <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure to delete this data?"} %>
+                </span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
