@@ -1,0 +1,34 @@
+<% articles.each_with_index do |article, index| %>
+  <% if (index % 4) == 0 %>
+    <div class="col-md-12">
+      <div class="row">
+  <% end %>
+  <div class="col-md-3 px-1 py-1">
+    <div class="card" style="s">
+      <div class="card-body">
+        <h5 class="card-title"><%= article.title %></h5>
+        <p class="card-text"><%= truncate(article.description) %></p>
+        <div class="row mb-2">
+          <div class="col-md-12">
+            <span class="article-meta-details">
+              Created by: <%= article.user.username if article.user %>,
+              <%= time_ago_in_words(article.created_at) %> ago, 
+              last updated at: <%= time_ago_in_words(article.updated_at) %> ago
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+              <%= link_to 'Show', article_path(article), class: 'btn btn-sm btn-primary' %>
+              <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-sm btn-success' %>
+              <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure to delete this data?"}, class: 'btn btn-sm btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if (index % 4) == 3 || index == articles.size - 1 %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -9,25 +9,6 @@
   <br>
 
   <div class="row">
-    <% @articles.each do |article| %>
-      <div class="col-md-3 mx-2 my-1">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title"><%= article.title %></h5>
-            <p class="card-text"><%= truncate(article.description) %></p>
-            <span class="article-meta-details">
-              Created by: <%= article.user.username if article.user %>,
-              <%= time_ago_in_words(article.created_at) %> ago, 
-              last updated at: <%= time_ago_in_words(article.updated_at) %> ago
-            </span><br>
-            <span>
-              <%= link_to 'Show', article_path(article), class: 'btn btn-sm btn-primary' %>
-              <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-sm btn-success' %>
-              <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure to delete this data?"}, class: 'btn btn-sm btn-danger' %>
-            </span>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'article', articles: @articles %>
   </div>
 </div>
