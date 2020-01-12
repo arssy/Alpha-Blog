@@ -4,9 +4,9 @@
       <div class="row">
   <% end %>
   <div class="col-md-3 px-1 py-1">
-    <div class="card" style="s">
+    <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><%= article.title %></h5>
+        <h5 class="card-title"><%= link_to "#{article.title}", article_path(article) %></h5>
         <p class="card-text"><%= truncate(article.description) %></p>
         <div class="row mb-2">
           <div class="col-md-12">

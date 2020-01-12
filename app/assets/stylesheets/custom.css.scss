@@ -137,3 +137,18 @@
 .article-meta-details{
   font-size: smaller;
 }
+
+.user-list{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user-list a{
+  color: black;
+}
+
+.user-list a:hover{
+  text-decoration: none;
+}
