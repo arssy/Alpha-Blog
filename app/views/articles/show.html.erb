@@ -22,8 +22,11 @@
         
         <div class="row">
           <div class="col-md-12">
-            <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-primary btn-sm' %>
-            <%= link_to 'View all article', articles_path, class: 'btn btn-success btn-sm' %>
+            <%= link_to 'View all article', articles_path, class: 'btn btn-success btn-xs' %>
+            <% if logged_in? %>
+              <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-primary btn-xs' %>
+              <%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure to delete this data?"}, class: 'btn btn-xs btn-danger' %>
+            <% end %>
           </div>
         </div>
       </div>

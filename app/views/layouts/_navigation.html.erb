@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-  <!-- <a class="navbar-brand" id="logo" href="#">Alpha Blog</a> -->
   <%= link_to 'Alpha Blog', root_path, class: 'navbar-brand', id: 'logo'%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -16,24 +15,45 @@
       <li class="nav-item">
         <%= link_to 'Author', users_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Actions
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'New article', new_article_path, class: 'dropdown-item' %>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'New article', new_article_path, class: 'dropdown-item' %>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <ul class="navbar-nav ml-auto">
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Your Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'View Profile', user_path(current_user), class: 'dropdown-item' %>
+            <%= link_to 'Edit Profile', edit_user_path(current_user), class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Log Out', logout_path, method: :delete, data: {confirm: "Are you sure want to log out?"}, class: 'dropdown-item' %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item px-1">
+          <%= link_to 'Log in', login_path, class: 'nav-link btn btn-sm btn-outline-light nav-login' %>
+        </li>
+        <li class="nav-item px-1">
+          <%= link_to 'Sign up', signup_path, class: 'nav-link btn btn-sm btn-outline-light nav-signup' %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </nav>

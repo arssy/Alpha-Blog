@@ -16,7 +16,10 @@
   </div>
   <div class="row">
     <div class="col-md-12 mt-3">
-      <%= render 'articles/article', articles: @user.articles %>
+      <%= render 'articles/article', articles: @user_articles %>
     </div>
+  </div>
+  <div class="float-right">
+    <%= will_paginate @user_articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center pagination-sm' %>
   </div>
 </div>

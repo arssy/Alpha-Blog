@@ -25,6 +25,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Custom Gem
+# Pagination
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -35,6 +40,15 @@ group :development, :test do
   gem 'awesome_print'
   # SQLite 3
   gem 'sqlite3', '~> 1.4'
+
+  # Rspec
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
+  end
+  # Factory Bot Rails
+  gem 'factory_bot_rails'
+  # Rspec Kickstarter
+  gem 'rspec-kickstarter'
 end
 
 group :development do
@@ -52,6 +66,14 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  # Shoulda Matcher
+  gem 'shoulda-matchers'
+  # Database Cleaner
+  gem 'database_cleaner'
+  # Faker
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master' 
+  gem 'regressor', :git => 'git@github.com:arssy/regressor.git', :branch => 'update'
 end
 
 group :production do 

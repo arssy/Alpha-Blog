@@ -9,6 +9,7 @@
 
   <div class="row">
     <!-- <div class="col-md-12"> -->
+      <div class="float-right"><%= will_paginate :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center pagination-sm' %></div>
       <% @users.each_with_index do |user, index| %>
         <div class="col-md-2 center-text px-1">
           <div class="card user-list">
